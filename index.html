@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FlexiSaf Tech Store</title>
+    <meta
+      name="description"
+      content="FlexiSaf Tech Store - Week 1 Intermediate Deliverable"
+    />
+    <link rel="stylesheet" href="src/output.css" />
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900">
+    <header
+      class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-gray-200"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between"
+      >
+        <a href="#" class="flex items-center gap-2">
+          <span
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand text-white font-bold"
+            >F</span
+          >
+          <span class="text-xl font-semibold">FlexiSaf Tech Store</span>
+        </a>
+        <nav class="hidden sm:flex items-center gap-6 text-sm">
+          <a class="hover:text-brand" href="#catalog">Catalog</a>
+          <a class="hover:text-brand" href="#docs">ES6 Methods</a>
+          <a
+            class="hover:text-brand"
+            href="https://flexisaf.com"
+            target="_blank"
+            rel="noreferrer"
+            >About</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6"
+    >
+      <section id="catalog" class="lg:col-span-2">
+        <div
+          class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between mb-4"
+        >
+          <h2 class="text-lg font-semibold">Products</h2>
+          <div class="flex flex-1 sm:flex-none gap-3">
+            <label class="relative flex-1">
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search products..."
+                class="w-full rounded-lg border border-gray-300 bg-white px-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+              />
+              <svg
+                class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z"
+                />
+              </svg>
+            </label>
+            <select
+              id="categorySelect"
+              class="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand min-w-[9rem]"
+            >
+              <option value="all">All Categories</option>
+            </select>
+            <select
+              id="sortSelect"
+              class="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand min-w-[10rem]"
+            >
+              <option value="relevance">Sort: Relevance</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating-desc">Rating: High to Low</option>
+              <option value="name-asc">Name: A → Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          id="productGrid"
+          class="grid grid-cols-2 md:grid-cols-3 gap-4"
+        ></div>
+      </section>
+
+      <aside class="lg:col-span-1">
+        <div
+          class="rounded-xl border border-gray-200 bg-white shadow-sm sticky top-20"
+        >
+          <div
+            class="p-4 border-b border-gray-200 flex items-center justify-between"
+          >
+            <h2 class="text-lg font-semibold">Cart</h2>
+            <button
+              id="clearCartBtn"
+              class="text-xs text-red-600 hover:text-red-700"
+            >
+              Clear
+            </button>
+          </div>
+          <div
+            id="cartItems"
+            class="divide-y divide-gray-100 max-h-[420px] overflow-auto"
+          ></div>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center justify-between text-sm">
+              <span>Subtotal</span>
+              <span id="subtotal" class="font-medium">₦0</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>Tax (7.5%)</span>
+              <span id="tax" class="font-medium">₦0</span>
+            </div>
+            <div
+              class="flex items-center justify-between text-base border-t pt-2"
+            >
+              <span class="font-semibold">Total</span>
+              <span id="total" class="font-semibold text-brand">₦0</span>
+            </div>
+            <button
+              id="checkoutBtn"
+              class="w-full mt-2 rounded-lg bg-brand hover:bg-brand-dark text-white py-2 text-sm"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section id="docs" class="lg:col-span-3">
+        <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+          <h3 class="text-lg font-semibold mb-2">ES6 and Array Methods Used</h3>
+          <p class="text-sm text-gray-700">
+            This project demonstrates practical use of modern JavaScript
+            features:
+          </p>
+          <ul
+            class="mt-2 grid sm:grid-cols-2 gap-1 text-sm list-disc list-inside text-gray-800"
+          >
+            <li>
+              <strong>const/let</strong>, <strong>arrow functions</strong>,
+              <strong>template strings</strong>, <strong>destructuring</strong>,
+              <strong>spread</strong>
+            </li>
+            <li>
+              <strong>map</strong>, <strong>filter</strong>,
+              <strong>reduce</strong>, <strong>sort</strong>,
+              <strong>find</strong>, <strong>some</strong>,
+              <strong>every</strong>
+            </li>
+            <li>
+              Modules: <code>products.js</code>, <code>utils.js</code>,
+              <code>cart.js</code>, <code>main.js</code>
+            </li>
+            <li>Local storage persistence for cart state</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-8 text-center text-xs text-gray-500">
+      <p>
+        © <span id="year"></span> FlexiSaf Tech Store — Internship Deliverable
+      </p>
+    </footer>
+
+    <script src="src/script.js"></script>
+  </body>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</html>
